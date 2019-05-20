@@ -3,14 +3,14 @@ function Button(text) {
 }
 Button.prototype = {
     create: function() {
-        const self = this;
-        this.element = document.createElement(`button`);
-        this.element.innerText = this.text;
-        this.element.addEventListener(`click`, function() {
-            alert(self.text);
-        });
-        document.body.appendChild(this.element);
+        this.ele = document.createElement(`button`);
+        this.ele.innerText = this.text;
+        this.ele.addEventListener(`click`, function() {
+            alert(this.text);
+        }.bind(this));
+        document.body.appendChild(this.ele);
     }
 }
 const btn1 = new Button(`Hello!`);
+console.log(btn1);
 btn1.create();
